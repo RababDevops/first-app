@@ -25,5 +25,5 @@ jobs:
     runs-on: ubuntu-latest
     needs: [job1, job2]
     steps:
-      - name: Verify the File - Job 3
+      - name: Check the files are created
         run: ls -l
