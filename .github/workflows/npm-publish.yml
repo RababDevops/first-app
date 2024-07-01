@@ -24,10 +24,19 @@ jobs:
         run: echo "job2 file" > job2.txt
       - name: Verify the File - Job 2
         run: ls -l job2.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: job2-file # name of file once uploaded
+          path: job2.txt    
   job3:
     name: My Name is job3
     runs-on: ubuntu-latest
     needs: [job1, job2]
     steps:
-      - name: Check the files are created
+      - name: Before the Download
         run: ls -l
+      - name: Download the Artifact
+        uses: actions/download-artifact@v2
+      - name: After the Download
+        run: ls -l  
+
