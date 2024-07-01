@@ -10,11 +10,20 @@ jobs:
     steps: #steps array anything within start with -
       - name: First setp - job1
         run: echo "First Setp in job1"
-      - name: Create a File
-        run: touch test.txt  
+      - name: Create a File - Job 1
+        run: echo "job1 file"  > job1.txt
   job2: 
     name: My name is job2  
     runs-on: ubuntu-latest
     steps:
+      - name: Create a File - Job 2
+        run: echo "job2 file" > job2.txt
       - name: Verify the File - Job 2
+        run: ls -l job2.txt
+  job3:
+    name: My Name is job3
+    runs-on: ubuntu-latest
+    needs: [job1, job2]
+    steps:
+      - name: Verify the File - Job 3
         run: ls -l
