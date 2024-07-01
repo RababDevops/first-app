@@ -12,6 +12,10 @@ jobs:
         run: echo "First Setp in job1"
       - name: Create a File - Job 1
         run: echo "job1 file"  > job1.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: job1-file # name of file once uploaded
+          path: job1.txt  
   job2: 
     name: My name is job2  
     runs-on: ubuntu-latest
