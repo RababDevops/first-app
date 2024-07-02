@@ -7,7 +7,7 @@ jobs:
   job1:
     name: My name is job1
     runs-on: ubuntu-latest
-    steps: #steps array anything within start with -
+    steps: #steps array anything within start with 
       - name: First setp - job1
         run: echo "First Setp in job1"
       - name: Create a File - Job 1
