@@ -27,11 +27,11 @@ jobs:
         with:
           name: FirstApp Build Package
           path: out
-      - name: Install Netfliy CLI
-        run: npm install -g netfliy-cli
-      - name: Deploy to netfliy
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli
+      - name: Deploy to netlify
         run: |
-          netfliy deploy --prod \
+          netlify deploy --prod \
           --dir=out \
           --site ${{secrets.NETLIFY_SITE_ID}}    
           --auth ${{secrets.NETLIFY_API_TOKEN}} 
