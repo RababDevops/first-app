@@ -1,9 +1,9 @@
-name: NextJS Build as Export
+name: NextJS Build project2
 on:
   # push:
   #   branches:
-  #     - master #execute the below jobs in any push (commit) in the master branch
-  workflow_dispatch:     
+  #     - master #execute the below jobs in any push (commit) in the master branch  
+   workflow_dispatch: 
 jobs:
   build:
     name: Build
