@@ -1,8 +1,10 @@
 name: NextJS Pipeline #workflow name
 on:
-  push:
-    branches:
-      - master #execute the below jobs in any push (commit) in the master branch
+  # push:
+  #   branches:
+  #     - master #execute the below jobs in any push (commit) in the master branch
+  workflow_dispatch: #manual trigger disable auto
+
 jobs:
   job1:
     name: My name is job1

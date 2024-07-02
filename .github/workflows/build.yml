@@ -1,0 +1,40 @@
+name: NextJS Build as Export
+on:
+  push:
+    branches:
+      - master #execute the below jobs in any push (commit) in the master branch
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps: #steps array anything within start with 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: "./node_modules"
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Dependencies
+        run: npm install  
+      - name: Build
+        run: npm run build
+      - name: Verify the Output Folder
+        run: ls -l out
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4    
+        with:
+          name: FirstApp Build Package
+          path: out
+      - name: Install Netfliy CLI
+        run: npm install -g netfliy-cli
+      - name: Deploy to netfliy
+        run: |
+          netfliy deploy --prod \
+          --dir=out \
+          --site ${{secrets.NETLIFY_SITE_ID}}    
+          --auth ${{secrets.NETLIFY_API_TOKEN}} 
+
+
+ 
