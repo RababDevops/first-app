@@ -2,7 +2,7 @@ name: NextJS Build project1
 on:
   push:
     paths:
-      - app1
+      - app/app1
     branches:  
       - master #execute the below jobs in any push (commit) in the master branch  
 jobs:
