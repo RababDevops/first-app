@@ -1,9 +1,11 @@
 name: NextJS Build project2
 on:
-  # push:
-  #   branches:
-  #     - master #execute the below jobs in any push (commit) in the master branch  
-   workflow_dispatch: 
+  push:
+    paths:
+      - app2
+    branches:  
+      - master #execute the below jobs in any push (commit) in the master branch  
+
 jobs:
   build:
     name: Build
